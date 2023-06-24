@@ -1,18 +1,71 @@
-const firstNumber = +prompt('Ender your first number, please');
-const secondNumber = +prompt('Ender your second number, please');
+const aboutUser = {
+    age: null,
+    city: null,
+    favoriteSport: null
+}
 
-const add  = firstNumber + secondNumber;
-const subtract  = firstNumber - secondNumber;
-const multiply = firstNumber * secondNumber;
-const division = firstNumber / secondNumber;
+const userSport = {
+    football: {
+        type: 'Футбол',
+        champion:'Лионель Мессі',
+    },
+    basketball: {
+        type: 'Баскетбол',
+        champion:'Майкл Джордан',
+    },
+    volleyball: {
+        type: 'Волейбол',
+        champion: 'Борис Терещук',
+    }
+}
 
-// long decision
-// alert(firstNumber + '+' + secondNumber + '=' + add  +'\n'+ firstNumber + '-' + secondNumber +'='+ subtract  +'\n'+ firstNumber + '*' + secondNumber +'='+ multiply +'\n'+ firstNumber + '/' + secondNumber +'='+ division)
+const date = new Date()
+const year = date.getFullYear()
 
-// short decision
-alert(`//Користувач ввів ${firstNumber} і ${secondNumber}:
-${firstNumber} + ${secondNumber} = ${add}
-${firstNumber} - ${secondNumber} = ${subtract}
-${firstNumber} * ${secondNumber} = ${multiply}
-${firstNumber} / ${secondNumber} = ${division}`);
+aboutUser.age = prompt('Вкажіть будь-ласка свій рік народження')
+console.log(aboutUser.age)
+aboutUser.city = prompt('Вкажіть будь-ласка ваше місто')
+aboutUser.favoriteSport = prompt('Вкажіть будь-ласка ваш улюблений вид спорту')
 
+if (aboutUser.age > 0 ){
+    alert(`Ваш вік ${year - aboutUser.age}`)
+} else {
+    alert('Шкода, що Ви не захотіли ввести свій рік народження')
+}
+
+
+switch (aboutUser.city) {
+    case 'Київ':
+        alert('Ти живеш у столиці України')
+        break;
+    case 'Вашингтон':
+        alert('Ти живеш у столиці Америки')
+        break;
+    case 'Лондон':
+        alert('Ти живеш у столиці Англії')
+        break;
+    case '':
+    case null:
+        alert('Шкода, що Ви не захотіли ввести своє місто')
+        break;
+    default:
+        alert(`Ти живеш у місті ${aboutUser.city}`)
+}
+
+switch (true){
+    case aboutUser.favoriteSport === userSport.football.type:
+        alert(`Круто хочеш стати як ${userSport.football.champion}`)
+        break;
+    case aboutUser.favoriteSport === userSport.basketball.type:
+        alert(`Круто хочеш стати як ${userSport.basketball.champion}`)
+        break;
+    case aboutUser.favoriteSport === userSport.volleyball.type:
+        alert(`Круто хочеш стати як ${userSport.volleyball.champion}`)
+        break;
+    case aboutUser.favoriteSport === '':
+    case aboutUser.favoriteSport === null:
+        alert('Шкода, що Ви не захотіли ввести свій улюблений спорт')
+        break;
+    default:
+        alert('Спробуй інший вид спорту!')
+}
