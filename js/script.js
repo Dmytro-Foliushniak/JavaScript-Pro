@@ -1,71 +1,83 @@
-const aboutUser = {
-    age: null,
-    city: null,
-    favoriteSport: null
+//Вивести на сторінку в один рядок через кому числа від 10 до 20.
+let number = '';
+for (let i = 10; i <= 20; i++) {
+    number += i + '; ';
 }
+console.log(number);
 
-const userSport = {
-    football: {
-        type: 'Футбол',
-        champion:'Лионель Мессі',
-    },
-    basketball: {
-        type: 'Баскетбол',
-        champion:'Майкл Джордан',
-    },
-    volleyball: {
-        type: 'Волейбол',
-        champion: 'Борис Терещук',
-    }
-}
+//Вивести квадрати чисел від 10 до 20.
+// for (let i = 10; i <= 20; i++ ){
+//     console.log(i ** 2)
+// }
 
-const date = new Date()
-const year = date.getFullYear()
+//Вивести таблицю множення на 7.
+// for (let i = 0; i <=10; i++){
+//     console.log(`${i} * 7 = ${i * 7}`)
+// }
 
-aboutUser.age = prompt('Вкажіть будь-ласка свій рік народження')
-console.log(aboutUser.age)
-aboutUser.city = prompt('Вкажіть будь-ласка ваше місто')
-aboutUser.favoriteSport = prompt('Вкажіть будь-ласка ваш улюблений вид спорту')
+//Знайти суму всіх цілих чисел від 1 до 15.
+// let sum = 0
+// for (let i = 1; i <=15; i++){
+//     sum += i;
+// }
+// console.log(sum)
 
-if (aboutUser.age > 0 ){
-    alert(`Ваш вік ${year - aboutUser.age}`)
-} else {
-    alert('Шкода, що Ви не захотіли ввести свій рік народження')
-}
+//Знайти добуток усіх цілих чисел від 15 до 35.
+// let sum = 0
+// for (let i = 15; i <=35; i++){
+//     sum *= i;
+// }
+// console.log(sum)
 
+//Знайти середнє арифметичне всіх цілих чисел від 1 до 500.
+// const length = 500
+// let sum = 0;
+// for (let i = 1; i <= length; i++){
+//     sum += i
+// }
+// const average = sum / length;
+//
+// console.log(average)
 
-switch (aboutUser.city) {
-    case 'Київ':
-        alert('Ти живеш у столиці України')
-        break;
-    case 'Вашингтон':
-        alert('Ти живеш у столиці Америки')
-        break;
-    case 'Лондон':
-        alert('Ти живеш у столиці Англії')
-        break;
-    case '':
-    case null:
-        alert('Шкода, що Ви не захотіли ввести своє місто')
-        break;
-    default:
-        alert(`Ти живеш у місті ${aboutUser.city}`)
-}
+//Вивести суму лише парних чисел в діапазоні від 30 до 80.
+// for (let i = 30; i <= 80; i++){
+//     if (i % 2 === 0){
+//         console.log(i)
+//     }
+// }
 
-switch (true){
-    case aboutUser.favoriteSport === userSport.football.type:
-        alert(`Круто хочеш стати як ${userSport.football.champion}`)
-        break;
-    case aboutUser.favoriteSport === userSport.basketball.type:
-        alert(`Круто хочеш стати як ${userSport.basketball.champion}`)
-        break;
-    case aboutUser.favoriteSport === userSport.volleyball.type:
-        alert(`Круто хочеш стати як ${userSport.volleyball.champion}`)
-        break;
-    case aboutUser.favoriteSport === '':
-    case aboutUser.favoriteSport === null:
-        alert('Шкода, що Ви не захотіли ввести свій улюблений спорт')
-        break;
-    default:
-        alert('Спробуй інший вид спорту!')
-}
+//Вивести всі числа в діапазоні від 100 до 200 кратні 3.
+// for (let i = 100; i <=200; i++){
+//     if (i % 3 === 0) {
+//         console.log(i)
+//     }
+// }
+
+// //Дано натуральне число. Знайти та вивести на сторінку всі його дільники.
+// let number = prompt('Введіть число')
+// let sum = 0
+// let count = 0
+// for (let i = 1; i <= number; i ++){
+//     const divider = number / i;
+//     if (number % i === 0){
+//         console.log(`${number} / ${i} = ${divider}`)
+//     }
+//     if (divider % 2 === 0){
+//         //Визначити кількість його парних дільників.
+//         count++
+//         //Знайти суму його парних дільників.
+//         sum += divider
+//     }
+//
+// }
+// console.log(`Кількість його парних дільників ${count}`)
+// console.log(`Сумма парних дільників ${sum}`)
+
+//Надрукувати повну таблицю множення від 1 до 10.
+// for (let i = 1; i <=10; i++){
+//     let result;
+//     for (let j = 1; j<=10; j++){
+//         result = i * j
+//         console.log(`${i} * ${j} = ${result}`)
+//     }
+// }
