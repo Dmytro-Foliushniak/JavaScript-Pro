@@ -1,55 +1,47 @@
-//Вивести числа від 20 до 30 через пропуск, використовуючи крок 0,5 (20 20,5 21 21,5….).
-for (let i = 20; i <=30; i+=0.5){
-    console.log(i)
+const number = {
+    fist: null,
+    second: null,
+    third: null
+}
+number.fist = +prompt('Введіть будь-ласка перше число')
+number.second = +prompt('Введіть будь-ласка друге число')
+number.third = +prompt('Введіть будь-ласка третє число')
+
+const checkNumber = function (value){
+    if (Number.isInteger(value)){
+        return value
+    }
+    for (const key in number){
+        if (isNaN(number[key])){
+            number[key] = +prompt('Ви вказали не число, повторіть спробу')
+            console.log(number)
+            return checkNumber(number[key])
+        }
+    }
 }
 
-//Один долар коштує 27 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів.
-// for (let i = 10; i <=100; i+=10){
-//     const course = 27
-//     const value = course * i
-//     console.log(`Вартість ${i} долларів = ${value} гривень`)
-// }
+checkNumber(number.fist)
+checkNumber(number.second)
+checkNumber(number.third)
 
-//Дане ціле число. Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N.
-// const number = prompt('Введить число')
-// for (let i = 1; i <= 100; i++){
-//     if (i**2 <= number){
-//         console.log(i)
-//     }
-// }
+const quadraticEquation = function (a,b,c){
+    let d = b**2 -4*a*c;
 
-//Дане ціле число. З'ясувати, чи є воно простим (простим називається число, більше 1, які не мають інших дільників крім 1 і себе).
-// const number = +prompt('Введить число')
-// let isPrime = true;
-//
-// if (number === 1){
-//     console.log('Число повинно бути більше 1')
-// } else if(number > 1){
-//     for (let i = 2; i < number; i++){
-//         if (number % i === 0){
-//             isPrime = false;
-//             break;
-//         }
-//     }
-//     if (isPrime){
-//         console.log('Просте число')
-//     }else {
-//         console.log('Складене число')
-//     }
-// }
+    if (a === 0){
+        return alert('Рівняння не має рішень')
+    }
 
-//Дане деяке число. Визначити, чи можна одержати це число шляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
-// const number = +prompt('Введить число')
-// let isPrime = false
-//
-// for (let i = 2; i <= number; i++){
-//     const value = 3 ** i
-//     if (value === number) {
-//         isPrime = true
-//     }
-// }
-// if (isPrime){
-//     console.log('Успіх')
-// }else {
-//     console.log('Невдача')
-// }
+    if (d < 0){
+        return alert('D < 0 Рівняння не має рішень')
+    }
+    if (d === 0){
+        let x = -b / (2*a);
+        alert(`D = 0 Єдиний корінь рівння ${x}`)
+    }
+    if (d > 0){
+        let x1 = (-b + Math.sqrt(d)) / (2 *a)
+        let x2 = (-b - Math.sqrt(d)) / (2 *a)
+        alert(`D > 0 Корені рівняння ${x1}, ${x2}`)
+    }
+}
+quadraticEquation(number.fist, number.second, number.third)
