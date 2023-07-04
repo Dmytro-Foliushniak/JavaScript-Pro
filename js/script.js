@@ -1,38 +1,34 @@
-const number = {
-    fist: null,
-    second: null,
-    third: null
+let inputNumber = {
+    a: null,
+    b: null,
+    c: null
 }
-number.fist = +prompt('Введіть будь-ласка перше число')
-number.second = +prompt('Введіть будь-ласка друге число')
-number.third = +prompt('Введіть будь-ласка третє число')
-
-const checkNumber = function (value){
-    if (Number.isInteger(value)){
-        return value
-    }
-    for (const key in number){
-        if (isNaN(number[key])){
-            number[key] = +prompt('Ви вказали не число, повторіть спробу')
-            console.log(number)
-            return checkNumber(number[key])
+const askNumber = function (){
+    let isNull = true
+    alert('Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0')
+        for (const key in inputNumber){
+            inputNumber[key] = prompt('Введіть будь-ласка число')
+            while (isNaN(inputNumber[key])) {
+                inputNumber[key] = prompt('Ви вказали не число, повторіть спробу')
+            }
+            isNull = Boolean(inputNumber[key])
         }
-    }
+        console.log(isNull)
+    console.log(inputNumber)
+    return inputNumber
 }
-
-checkNumber(number.fist)
-checkNumber(number.second)
-checkNumber(number.third)
-
-const quadraticEquation = function (a,b,c){
+askNumber()
+const invalidNumber = function (){
+    alert('Рівняння не має рішень')
+}
+const quadraticEquation = function (a,b,c,ifInvalid){
     let d = b**2 -4*a*c;
-
-    if (a === 0){
-        return alert('Рівняння не має рішень')
+    if (+a === 0){
+        ifInvalid();
+        return null
     }
-
     if (d < 0){
-        return alert('D < 0 Рівняння не має рішень')
+        alert(`{d:${d}, x1:null, x2:null} D < 0 Рівняння не має рішень`)
     }
     if (d === 0){
         let x = -b / (2*a);
@@ -41,7 +37,7 @@ const quadraticEquation = function (a,b,c){
     if (d > 0){
         let x1 = (-b + Math.sqrt(d)) / (2 *a)
         let x2 = (-b - Math.sqrt(d)) / (2 *a)
-        alert(`D > 0 Корені рівняння ${x1}, ${x2}`)
+        alert(`{D:${d}, x1:${x1}, x2:${x2}} D >= 0`)
     }
 }
-quadraticEquation(number.fist, number.second, number.third)
+quadraticEquation(inputNumber.a, inputNumber.b, inputNumber.c, invalidNumber)
