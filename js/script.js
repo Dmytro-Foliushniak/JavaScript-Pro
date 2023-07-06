@@ -3,6 +3,7 @@ const aboutUser = {
     city: null,
     favoriteSport: null
 }
+
 let countryResult = null
 
 const userSport = {
@@ -21,18 +22,20 @@ const userSport = {
 }
 let favoriteSportResult = null
 
-const date = new Date()
-const year = date.getFullYear()
 let ageResult = null
 
 aboutUser.age = prompt('Вкажіть будь-ласка свій рік народження')
-if (aboutUser.age > 0 ){
+
+if (aboutUser.age > 0 || aboutUser.age === !'' ){
+    const date = new Date()
+    const year = date.getFullYear()
     ageResult = `Ваш вік ${year - aboutUser.age}`
-} else {
+} else if (aboutUser.age === null){
     alert('Шкода, що Ви не захотіли ввести свій рік народження')
 }
 
 aboutUser.city = prompt('Вкажіть будь-ласка ваше місто')
+
 switch (aboutUser.city) {
     case 'Київ':
         countryResult = 'Ти живеш у столиці України'
@@ -43,14 +46,16 @@ switch (aboutUser.city) {
     case 'Лондон':
         countryResult = 'Ти живеш у столиці Англії'
         break;
-    case '':
     case null:
         alert('Шкода, що Ви не захотіли ввести своє місто')
+        break;
+    case '':
         break;
     default:
         countryResult = `Ти живеш у місті ${aboutUser.city}`
 }
 aboutUser.favoriteSport = prompt('Вкажіть будь-ласка ваш улюблений вид спорту')
+
 switch (true){
     case aboutUser.favoriteSport === userSport.football.type:
         favoriteSportResult = `Круто хочеш стати як ${userSport.football.champion}`
@@ -61,9 +66,10 @@ switch (true){
     case aboutUser.favoriteSport === userSport.volleyball.type:
         favoriteSportResult = `Круто хочеш стати як ${userSport.volleyball.champion}`
         break;
-    case aboutUser.favoriteSport === '':
     case aboutUser.favoriteSport === null:
         alert('Шкода, що Ви не захотіли ввести свій улюблений спорт')
+        break;
+    case aboutUser.favoriteSport === '':
         break;
     default:
         favoriteSportResult = 'Спробуй інший вид спорту!'
