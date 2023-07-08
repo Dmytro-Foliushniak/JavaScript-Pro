@@ -1,7 +1,7 @@
 let isCancelFlag = false;
 
 const cancelInput = function (){
-    alert('Шкода')
+    alert('Шкода. Сподіваюсь ще побачимось')
 }
 
 const openAlert = function ()
