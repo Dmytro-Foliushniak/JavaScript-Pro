@@ -4,6 +4,14 @@ let inputNumber = {
     c: null
 }
 
+const cancelInput = function (){
+    alert('Шкода. Сподіваюсь ще побачимось')
+}
+
+const openAlert = function () {
+    alert('Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0')
+}
+
 const askNumber = function (){
     let isTrueAskNumber = true
     alert('Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0')
@@ -11,11 +19,16 @@ const askNumber = function (){
             inputNumber[key] = prompt('Введіть будь-ласка число')
             if (inputNumber[key] === null){
                 isTrueAskNumber = false
-                alert('Шкода. Сподіваюсь ще побачимось')
+                cancelInput()
                 break;
             } else {
                 while (isNaN(inputNumber[key])) {
                     inputNumber[key] = prompt('Ви вказали не число, повторіть спробу')
+                }
+                if (inputNumber[key] === null){
+                    isTrueAskNumber = false
+                    cancelInput()
+                    break;
                 }
             }
         }
@@ -52,6 +65,6 @@ if (askNumber() === true){
     result = quadraticEquation(inputNumber.a, inputNumber.b, inputNumber.c, invalidNumber);
 }
 
-if (result !== undefined){
+if (result !== null){
     alert(result)
 }
