@@ -1,85 +1,56 @@
-let isCancelFlag = false;
+const arr =  [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 
-const cancelInput = function (){
-    alert('Шкода. Сподіваюсь ще побачимось')
-}
+//Знайти суму та кількість позитивних елементів.
+const positiveArr = arr.filter(item => item > 0)
 
-const openAlert = function ()
-{
-    alert('Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0')
-}
+let sum = 0;
+positiveArr.forEach(item => sum +=item)
 
-const inputNumber = function () {
-    openAlert()
-    const first = prompt('Введіть будь-ласка число A')
-    if (first === null) {
-        isCancelFlag = true
-        cancelInput()
-        return isCancelFlag
-    }
-    const second = prompt('Введіть будь-ласка число B')
-    if (second === null){
-        isCancelFlag = true
-        cancelInput()
-        return isCancelFlag
-    }
-    const third = prompt('Введіть будь-ласка число C')
-    if (third === null) {
-        isCancelFlag = true
-        cancelInput()
-        return isCancelFlag
-    }
-    return {first, second , third}
-}
+console.log(`Сума: ${sum} \nКількість позитивних елементів: ${positiveArr.length}`)
 
-const number = inputNumber()
+//Знайти мінімальний елемент масиву та його порядковий номер.
+const minNumber = Math.min(...arr)
 
-const checkNumber = function (value){
-    if (Number.isInteger(value)){
-        return value
-    }
-    for (const key in number){
-            if (isNaN(number[key])){
-                number[key] = prompt('Ви вказали не число, повторіть спробу')
-                console.log(number)
-                return checkNumber(number[key])
-            }
-            if (number[key] === null) {
-                isCancelFlag = true
-                cancelInput()
-                return isCancelFlag
-            }
-    }
-    return isCancelFlag
-}
+console.log(`Мінімальне число ${minNumber}`)
 
-checkNumber(number)
+//Знайти максимальний елемент масиву та його порядковий номер.
+const maxNumber = Math.max(...arr)
 
-const quadraticEquation = function (a,b,c){
-    let d = b**2 -4*a*c;
+console.log(`Максимальне число ${maxNumber}`)
 
-    if (+a === 0){
-        return ('Рівняння не має рішень')
-    }
+//Знайти кількість непарних позитивних елементів.
+const oddNumber = arr.filter(item => item > 0 && item % 2 !== 0)
 
-    if (d < 0){
-        return ('D < 0 Рівняння не має рішень')
-    }
-    if (d === 0){
-        let x = -b / (2*a);
-        return (`D = 0 Єдиний корінь рівння ${x}`)
-    }
-    if (d > 0){
-        let x1 = (-b + Math.sqrt(d)) / (2 *a)
-        let x2 = (-b - Math.sqrt(d)) / (2 *a)
-        return (`D > 0 Корені рівняння ${x1}, ${x2}`)
-    }
-}
+console.log(`Кількість непарних позитивних елементів: ${oddNumber.length}`)
 
-let result = null;
+//Знайти кількість парних позитивних елементів.
+const pairNumber = arr.filter(item => item > 0 && item % 2 === 0)
 
-if ( isCancelFlag !== true){
-   result = quadraticEquation(number.first, number.second, number.third)
-}
+console.log(`Кількість парних позитивних елементів: ${pairNumber.length}`)
 
-alert(result)
+//Знайти суму парних позитивних елементів.
+let sumPairNumber = 0;
+
+pairNumber.forEach(item => sumPairNumber += item)
+
+console.log(`Сума парних позитивних чисел ${sumPairNumber}`)
+
+//Знайти суму непарних позитивних елементів.
+let sumOddNumber = 0;
+
+oddNumber.forEach(item => sumOddNumber += item)
+
+console.log(`Сума непарних позитивних чисел ${sumOddNumber}`)
+
+//Знайти добуток позитивних елементів.
+let productPositiveElement = BigInt(1);
+
+positiveArr.forEach(item => productPositiveElement *= BigInt(item))
+
+console.log(`Добуток парних елементів: ${productPositiveElement}`)
+
+//Знайти найбільший серед елементів масиву, ост альні обнулити.
+let maxArr = null
+maxArr = arr.map(item => item === maxNumber ? maxArr = item : maxArr = 0)
+
+console.log(`Массив елементів де залишився тільки максимальний: [${maxArr}]`)
