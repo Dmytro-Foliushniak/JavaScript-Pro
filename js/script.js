@@ -4,27 +4,32 @@ const cancelInput = function (){
     alert('Шкода. Сподіваюсь ще побачимось')
 }
 
-const openAlert = function ()
-{
-    alert('Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0')
-}
-
 const inputNumber = function () {
-    openAlert()
-    const first = prompt('Введіть будь-ласка число A')
+    let first = prompt('Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0' + '\n' + 'Введіть a')
+    while (isNaN(+first)){
+        first = prompt('Введіть a')
+    }
     if (first === null) {
         isCancelFlag = true
         cancelInput()
         return isCancelFlag
     }
-    const second = prompt('Введіть будь-ласка число B')
+
+    let second = 0;
+    while (second === 0 || isNaN(second)){
+        second = prompt(`a = ${first} \nВведіть b`)
+    }
     if (second === null){
         isCancelFlag = true
         cancelInput()
         return isCancelFlag
     }
-    const third = prompt('Введіть будь-ласка число C')
-    if (third === null) {
+
+    let third = 0;
+    while (third === 0 || isNaN(third)){
+        third = prompt(`a = ${first}, b = ${second} \nВведіть c`)
+    }
+    if (+third === null) {
         isCancelFlag = true
         cancelInput()
         return isCancelFlag
@@ -32,28 +37,7 @@ const inputNumber = function () {
     return {first, second , third}
 }
 
-const number = inputNumber()
-
-const checkNumber = function (value){
-    if (Number.isInteger(value)){
-        return value
-    }
-    for (const key in number){
-            if (isNaN(number[key])){
-                number[key] = prompt('Ви вказали не число, повторіть спробу')
-                console.log(number)
-                return checkNumber(number[key])
-            }
-            if (number[key] === null) {
-                isCancelFlag = true
-                cancelInput()
-                return isCancelFlag
-            }
-    }
-    return isCancelFlag
-}
-
-checkNumber(number)
+let number = inputNumber()
 
 const quadraticEquation = function (a,b,c){
     let d = b**2 -4*a*c;
@@ -82,4 +66,7 @@ if ( isCancelFlag !== true){
    result = quadraticEquation(number.first, number.second, number.third)
 }
 
-alert(result)
+if (result !== null){
+    alert(result)
+}
+
