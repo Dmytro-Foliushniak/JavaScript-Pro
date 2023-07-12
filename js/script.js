@@ -66,7 +66,7 @@ if ( isCancelFlag !== true){
    result = quadraticEquation(number.first, number.second, number.third)
 }
 
-if (result !== null){
+if (Boolean(result) === true){
     alert(result)
 }
 
