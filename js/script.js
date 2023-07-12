@@ -1,4 +1,4 @@
-const arr =  [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+const arr =  [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 
 //Знайти суму та кількість позитивних елементів.
 const positiveArr = arr.filter(item => item > 0)
@@ -10,13 +10,17 @@ console.log(`Сума: ${sum} \nКількість позитивних елем
 
 //Знайти мінімальний елемент масиву та його порядковий номер.
 const minNumber = Math.min(...arr)
+const minNumberIndex = arr.indexOf(Math.min(...arr))
 
 console.log(`Мінімальне число ${minNumber}`)
+console.log(`Індекс мінімального числа ${minNumberIndex}`)
 
 //Знайти максимальний елемент масиву та його порядковий номер.
 const maxNumber = Math.max(...arr)
+const maxNumberIndex = arr.indexOf(Math.max(...arr))
 
 console.log(`Максимальне число ${maxNumber}`)
+console.log(`Індекс максимального числа ${maxNumberIndex}`)
 
 //Знайти кількість непарних позитивних елементів.
 const oddNumber = arr.filter(item => item > 0 && item % 2 !== 0)
