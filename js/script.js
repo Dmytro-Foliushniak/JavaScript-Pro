@@ -1,11 +1,12 @@
-const arrLong = +prompt('Введіть довижну массиву')
+const array = [1, 2, 3, 4, 5, 6, 7];
 
-let newArr = []
-
-for (let i = 0; i < arrLong; i++){
-    newArr.push(+prompt(`Введіть число ${i+1}`))
-    newArr.sort((a,b) => a - b);
-    console.log(newArr)
+const removeElement = function (arr, deleteNumber){
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] === deleteNumber){
+            arr.splice(arr.indexOf(arr[i]), 1)
+        }
+    }
 }
-newArr.splice(1,3)
-console.log(newArr)
+
+removeElement(array, 5 );
+console.log(array);
