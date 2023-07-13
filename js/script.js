@@ -1,9 +1,9 @@
-let inputNumber = {
-    a: 0,
-    b: 0,
-    c: 0
+const inputNumber = {
+    a: undefined,
+    b: undefined,
+    c: undefined
 }
-
+console.log(inputNumber)
 const cancelInput = function (){
     alert('Шкода. Сподіваюсь ще побачимось')
 }
@@ -12,8 +12,8 @@ const askNumber = function (){
     let isTrueAskNumber = true
     inputNumber.a = prompt('Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0' + '\n' + 'Введіть a')
         for (const key in inputNumber){
-            while (inputNumber[key] === 0 || isNaN(inputNumber[key])) {
-                inputNumber[key] = prompt(`Введіть будь-ласка число ${[key]}`);
+            while (inputNumber[key] === undefined || isNaN(inputNumber[key])) {
+                inputNumber[key] = prompt(`Введіть будь-ласка число ${[key]} \n${inputNumber.a >= 0 ? `a = ${inputNumber.a},`: ''} ${inputNumber.b >= 0 ? `b = ${inputNumber.b}`: ''}`);
             }
             if (inputNumber[key] === null){
                     isTrueAskNumber = false
