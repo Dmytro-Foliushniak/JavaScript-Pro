@@ -1,12 +1,10 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
-
-const removeElement = function (arr, deleteNumber){
-    for (let i = 0; i < arr.length; i++){
-        if (arr[i] === deleteNumber){
-            arr.splice(arr.indexOf(arr[i]), 1)
-        }
+const reisesOfDegree = function (num, degree) {
+    if (degree > 1){
+        return num * reisesOfDegree(num, degree-1)
+    } else {
+        return num
     }
+
 }
 
-removeElement(array, 5 );
-console.log(array);
+console.log(reisesOfDegree(5,2))
