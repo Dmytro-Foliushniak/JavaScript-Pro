@@ -70,8 +70,8 @@ console.log(numberPhones)
 
 
 const result = newUser.reduce((acc, {balance})=> {
-    acc += +balance
+    acc += balance
     return acc
 }, 0)
 
-console.log(`Сума всіх балансів користувача ${result}`)
+console.log(`Сума всіх балансів користувача ${result.toFixed(2)}`)
