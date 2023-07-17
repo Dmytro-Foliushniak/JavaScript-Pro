@@ -70,7 +70,7 @@ console.log(numberPhones)
 
 
 const result = newUser.reduce((acc, {balance})=> {
-    acc += balance
+    acc += +balance
     return acc
 }, 0)
 
