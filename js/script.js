@@ -5,7 +5,7 @@ const randomChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 const generateKey = function (length, characters){
     let result = '';
     for (let i =0; i < length; i++){
-        result += characters.charAt(Math.random() * length);
+        result += characters.charAt(Math.random() * randomChar.length);
         console.log(result)
     }
     return result
