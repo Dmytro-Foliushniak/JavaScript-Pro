@@ -1,9 +1,17 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
+let ladder = {
+    step: 0,
+    up: function () {
+        this.step++;
+        return this
+    },
+    down: function () {
+        this.step--;
+        return this
+    },
+    showStep: function () { // показывает текущую ступеньку
+        alert(this.step);
+        return this
+    }
+};
 
-const removeElement = function (arr, deleteNumber){
-    arr.splice(arr.indexOf(deleteNumber), 1)
-    return arr
-}
-
-removeElement(array, 5 );
-console.log(array);
+ladder.up().up().down().showStep();
