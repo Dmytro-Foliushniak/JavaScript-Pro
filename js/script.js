@@ -23,17 +23,17 @@ const findDates = function (someText){
 
   let newStr = null;
 
-  newStr = str.match(/(?<year>\d{4})-(?<mounth>\d{2})-(?<day>\d{2})/g).map((item)=>{
+  newStr = str.match(/(\d{4})-(\d{2})-(\d{2})/g).map((item)=>{
     const arr = item.split('-');
 
     for (let key in monthCount){
 
       if (arr[1] === monthCount[key]){
         return {
-          [year]: arr[0],
+          [day]: arr[2],
           [month]: arr[1],
           [monthName]: key,
-          [day]: arr[2]
+          [year]: arr[0]
         }
       }
     }
