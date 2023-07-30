@@ -40,8 +40,7 @@ const findDates = function (someText){
 
   })
 
-  newStr.splice(newStr.indexOf(undefined),1)
-  return newStr
+  return newStr.filter(item => item !== undefined)
 }
 
 console.log(findDates(str))
