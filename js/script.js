@@ -1,47 +1,66 @@
-const str = "The dates between 1976-03-12, and 1983-10-14, the code was 2004-67-12 and possible invalid date 8765-11-34";
-
-const findDates = function (someText){
-  const year = 'year'
-  const month = 'month'
-  const day = 'day';
-  const monthName = 'monthName'
-
-  const monthCount= {
-    January: '01',
-    February: '02',
-    March: '03',
-    April: '04',
-    May: '05',
-    June: '06',
-    July: '07',
-    August: '08',
-    September: '09',
-    October: '10',
-    November: '11',
-    December: '12'
+class Human {
+  age = null;
+  name = null;
+  constructor(name, age) {
+    this.name = name
+    this.age = age
   }
 
-  let newStr = null;
-
-  newStr = str.match(/(\d{4})-(\d{2})-(\d{2})/g).map((item)=>{
-    const arr = item.split('-');
-
-    for (let key in monthCount){
-
-      if (arr[1] === monthCount[key]){
-        return {
-          [day]: arr[2],
-          [month]: arr[1],
-          [monthName]: key,
-          [year]: arr[0]
-        }
-      }
-    }
-
-  })
-
-  return newStr.filter(item => item !== undefined)
+  aboutHuman(){
+    console.log(`Імя: ${this.name}, Вік: ${this.age}`)
+  }
 }
 
-console.log(findDates(str))
+const human1 = new Human('Коля', '22')
+const human2 = new Human('Вітя', '55')
+const human3 = new Human('Ігор', '17')
 
+human1.aboutHuman()
+human2.aboutHuman()
+human3.aboutHuman()
+
+class Auto{
+  brand = null;
+  model = null;
+  owner = null;
+  yearOfRelease = null
+  licencePlate = null
+  constructor(brand,model,yearOfRelease,licencePlate) {
+    this.brand = brand
+    this.model = model
+    this.yearOfRelease = yearOfRelease
+    this.licencePlate = licencePlate
+  }
+
+checkHuman(value){
+    if (value.age < 18){
+      const errorText = 'Шкода вам немає 18 років'
+      console.log(errorText)
+      return;
+    }
+    if (value.age >= 18){
+      return this.owner = value
+    }
+}
+
+  outputInfo(){
+    if (this.owner !== null){
+      console.log(`Марка: ${this.brand}, Модель: ${this.model}, Рік випуску: ${this.yearOfRelease}, Номерний знак: ${this.licencePlate}`)
+      this.owner.aboutHuman()
+    }
+
+  }
+
+}
+
+const auto = new Auto('Porsche','718 Cayman',2016,'YA55 FBE')
+const auto1 = new Auto('Ferrari','SF90 Stradale',2020,'WWI3 BCD')
+const auto2 = new Auto('BMW','M440i xDrive Gran',2022,'BD51 SMR')
+
+
+auto.checkHuman(human1)
+auto.outputInfo()
+auto1.checkHuman(human2)
+auto1.outputInfo()
+auto2.checkHuman(human3)
+auto2.outputInfo()
