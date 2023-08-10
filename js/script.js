@@ -1,9 +1,9 @@
 class Human {
   age = null;
-  name = null;
-  constructor(name, age) {
+  gander = null;
+  constructor(name, gander) {
     this.name = name
-    this.age = age
+    this.gander = gander
   }
 
   aboutHuman(){
@@ -11,56 +11,49 @@ class Human {
   }
 }
 
-const human1 = new Human('Коля', '22')
-const human2 = new Human('Вітя', '55')
-const human3 = new Human('Ігор', '17')
+const human1 = new Human('Коля', 'male')
+const human2 = new Human('Катя', 'female')
+const human3 = new Human('Ігор', 'male')
 
-human1.aboutHuman()
-human2.aboutHuman()
-human3.aboutHuman()
-
-class Auto{
-  brand = null;
-  model = null;
-  owner = null;
-  yearOfRelease = null
-  licencePlate = null
-  constructor(brand,model,yearOfRelease,licencePlate) {
-    this.brand = brand
-    this.model = model
-    this.yearOfRelease = yearOfRelease
-    this.licencePlate = licencePlate
+class Apartment {
+  residents = []
+  addResidents(value){
+    this.residents.push(value.name)
   }
-
-checkHuman(value){
-    if (value.age < 18){
-      const errorText = 'Шкода вам немає 18 років'
-      console.log(errorText)
-      return;
-    }
-    if (value.age >= 18){
-      return this.owner = value
-    }
 }
 
-  outputInfo(){
-    if (this.owner !== null){
-      console.log(`Марка: ${this.brand}, Модель: ${this.model}, Рік випуску: ${this.yearOfRelease}, Номерний знак: ${this.licencePlate}`)
-      this.owner.aboutHuman()
-    }
+class House {
+  apartments = [];
+  maxCountHouses = null
+  constructor(maxCountHouses) {
+    this.maxCountHouses = maxCountHouses
+  }
+  addApartments(value){
+
+      if (this.maxCountHouses > this.apartments.length){
+        return this.apartments.push(value)
+      }else {
+        console.log('Досягнуто максимульну кількість квартир')
+      }
 
   }
-
 }
 
-const auto = new Auto('Porsche','718 Cayman',2016,'YA55 FBE')
-const auto1 = new Auto('Ferrari','SF90 Stradale',2020,'WWI3 BCD')
-const auto2 = new Auto('BMW','M440i xDrive Gran',2022,'BD51 SMR')
+const apartment1 = new Apartment()
+apartment1.addResidents(human1)
+apartment1.addResidents(human2)
+apartment1.addResidents(human3)
 
+const apartment2 = new Apartment()
+apartment2.addResidents(human2)
+apartment2.addResidents(human1)
 
-auto.checkHuman(human1)
-auto.outputInfo()
-auto1.checkHuman(human2)
-auto1.outputInfo()
-auto2.checkHuman(human3)
-auto2.outputInfo()
+const apartment3 = new Apartment()
+apartment3.addResidents(human3)
+
+const house = new House(3)
+house.addApartments(apartment1)
+house.addApartments(apartment2)
+house.addApartments(apartment3)
+console.log(house.apartments)
+
