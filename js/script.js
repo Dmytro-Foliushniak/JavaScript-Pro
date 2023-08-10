@@ -32,9 +32,9 @@ class Auto{
     this.licencePlate = licencePlate
   }
 
-checkHuman(value){
+  addOwnerCar(value){
     if (value.age < 18){
-      const errorText = 'Шкода вам немає 18 років'
+      const errorText = `${value.name} вам немає 18 років.`
       console.log(errorText)
       return;
     }
@@ -45,10 +45,9 @@ checkHuman(value){
 
   outputInfo(){
     if (this.owner !== null){
-      console.log(`Марка: ${this.brand}, Модель: ${this.model}, Рік випуску: ${this.yearOfRelease}, Номерний знак: ${this.licencePlate}`)
       this.owner.aboutHuman()
     }
-
+    console.log(`Марка: ${this.brand}, Модель: ${this.model}, Рік випуску: ${this.yearOfRelease}, Номерний знак: ${this.licencePlate}`)
   }
 
 }
@@ -58,9 +57,9 @@ const auto1 = new Auto('Ferrari','SF90 Stradale',2020,'WWI3 BCD')
 const auto2 = new Auto('BMW','M440i xDrive Gran',2022,'BD51 SMR')
 
 
-auto.checkHuman(human1)
+auto.addOwnerCar(human1)
 auto.outputInfo()
-auto1.checkHuman(human2)
+auto1.addOwnerCar(human2)
 auto1.outputInfo()
-auto2.checkHuman(human3)
+auto2.addOwnerCar(human3)
 auto2.outputInfo()
