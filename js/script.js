@@ -1,65 +1,69 @@
-class Human {
-  age = null;
-  name = null;
-  constructor(name, age) {
-    this.name = name
-    this.age = age
+class Hamburger {
+
+  static SIZE_SMALL = {
+    price: 50,
+    calories: 20,
+  };
+
+  static SIZE_BIG = {
+    price: 100,
+    calories: 40,
+  };
+
+  static STUFFING_CHEESE = {
+    price: 10,
+    calories: 20
   }
 
-  aboutHuman(){
-    console.log(`Імя: ${this.name}, Вік: ${this.age}`)
+  static STUFFING_SALAD = {
+    price: 20,
+    calories: 5
   }
+
+  static STUFFING_POTATO = {
+    price: 15,
+    calories: 10
+  }
+
+  static TOPPING_MAYO = {
+    price: 20,
+    calories: 5
+  }
+  static TOPPING_SPICE = {
+    price: 15,
+    calories: 0
+  }
+  size = null;
+  stuffing = null;
+  constructor(size, stuffing) {
+    this.size = size;
+    this.stuffing = stuffing;
+  }
+  topping = [];
+
+  addTopping(value){
+    return  this.topping.push(value);
+  }
+
+  calculateCalories(){
+  return this.size.calories + this.stuffing.calories + this.topping.reduce((value,item)=> value+=item.calories, 0);
+  }
+  calculatePrice(){
+    return this.size.price + this.stuffing.price + this.topping.reduce((value,item)=> value+=item.price, 0);
+  }
+
 }
+const hamburger = new Hamburger(Hamburger.SIZE_SMALL,Hamburger.STUFFING_CHEESE);
 
-const human1 = new Human('Коля', '22')
-const human2 = new Human('Вітя', '55')
-const human3 = new Human('Ігор', '17')
+hamburger.addTopping(Hamburger.TOPPING_MAYO);
 
-human1.aboutHuman()
-human2.aboutHuman()
-human3.aboutHuman()
+console.log(`Calories: ${hamburger.calculateCalories()}`);
 
-class Auto{
-  brand = null;
-  model = null;
-  owner = null;
-  yearOfRelease = null
-  licencePlate = null
-  constructor(brand,model,yearOfRelease,licencePlate) {
-    this.brand = brand
-    this.model = model
-    this.yearOfRelease = yearOfRelease
-    this.licencePlate = licencePlate
-  }
+console.log(`Price: ${hamburger.calculatePrice()}`);
 
-  addOwnerCar(value){
-    if (value.age < 18){
-      const errorText = `${value.name} вам немає 18 років.`
-      console.log(errorText)
-      return;
-    }
-    if (value.age >= 18){
-      return this.owner = value
-    }
-}
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
 
-  outputInfo(){
-    if (this.owner !== null){
-      this.owner.aboutHuman()
-    }
-    console.log(`Марка: ${this.brand}, Модель: ${this.model}, Рік випуску: ${this.yearOfRelease}, Номерний знак: ${this.licencePlate}`)
-  }
-
-}
-
-const auto = new Auto('Porsche','718 Cayman',2016,'YA55 FBE')
-const auto1 = new Auto('Ferrari','SF90 Stradale',2020,'WWI3 BCD')
-const auto2 = new Auto('BMW','M440i xDrive Gran',2022,'BD51 SMR')
+console.log(`Calories with added topping: ${hamburger.calculateCalories()}`);
+console.log(`Price with added topping: ${hamburger.calculatePrice()}`);
 
 
-auto.addOwnerCar(human1)
-auto.outputInfo()
-auto1.addOwnerCar(human2)
-auto1.outputInfo()
-auto2.addOwnerCar(human3)
-auto2.outputInfo()
