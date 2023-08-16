@@ -1,5 +1,5 @@
 class Human {
-  age = null;
+  name = null;
   gander = null;
   constructor(name, gander) {
     this.name = name
@@ -7,7 +7,7 @@ class Human {
   }
 
   aboutHuman(){
-    console.log(`Імя: ${this.name}, Вік: ${this.age}`)
+    console.log(`Імя: ${this.name}, Стать: ${this.gander}`)
   }
 }
 
@@ -17,8 +17,8 @@ const human3 = new Human('Ігор', 'male')
 
 class Apartment {
   residents = []
-  addResidents(value){
-    this.residents.push(value.name)
+  addResident(value){
+    this.residents.push(value)
   }
 }
 
@@ -28,7 +28,7 @@ class House {
   constructor(maxCountHouses) {
     this.maxCountHouses = maxCountHouses
   }
-  addApartments(value){
+  addApartment(value){
 
       if (this.maxCountHouses > this.apartments.length){
         return this.apartments.push(value)
@@ -40,20 +40,20 @@ class House {
 }
 
 const apartment1 = new Apartment()
-apartment1.addResidents(human1)
-apartment1.addResidents(human2)
-apartment1.addResidents(human3)
+apartment1.addResident(human1)
+apartment1.addResident(human2)
+apartment1.addResident(human3)
 
 const apartment2 = new Apartment()
-apartment2.addResidents(human2)
-apartment2.addResidents(human1)
+apartment2.addResident(human2)
+apartment2.addResident(human1)
 
 const apartment3 = new Apartment()
-apartment3.addResidents(human3)
+apartment3.addResident(human3)
 
 const house = new House(3)
-house.addApartments(apartment1)
-house.addApartments(apartment2)
-house.addApartments(apartment3)
+house.addApartment(apartment1)
+house.addApartment(apartment2)
+house.addApartment(apartment3)
 console.log(house.apartments)
 
