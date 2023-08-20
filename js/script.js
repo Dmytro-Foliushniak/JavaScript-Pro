@@ -1,21 +1,17 @@
+const inputText = document.querySelector('#inputText');
+inputText.style.marginRight = '10px';
 
-const imageBox = document.querySelector(`.imageBox`)
+const box = document.querySelector('.box');
+box.style.display = 'flex';
 
-const img = document.createElement('img')
+const div = document.createElement('div');
+div.innerHTML = 'Some Text';
+box.append(div);
+div.hidden = true;
 
-imageBox.append(img)
-
-imgRandom = function (){
-    let random = null
-    for (let i = 1; i <= 5; i++){
-        random =  Math.ceil(Math.random() * i) + `.jpg`
-    }
-    return random
-}
-
-img.src = `/image/${imgRandom()}`
-imageBox.style.cssText = `
-display: flex;
-justify-content: center;
-height: 100vh
-`;
+inputText.addEventListener('focus', ()=> {
+div.hidden = false;
+});
+inputText.addEventListener('focusout', ()=> {
+    div.hidden = true;
+});
