@@ -6,11 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script async src="/js/script.js"></script>
+    <link rel="stylesheet" href="/style/style.css">
     <title>Hello</title>
 </head>
 <body>
     <div class="box">
-        <input type="text" id="inputText" name="inputText">
+        <div class="image-box">
+            <input class="btn btn-back" type="button" value="<=">
+            <img class="image active" src="/image/1.jpg" alt="image" width="500">
+            <img class="image active" hidden src="/image/2.jpg" alt="image" width="500">
+            <img class="image" hidden src="/image/3.jpg" alt="image" width="500">
+            <img class="image" hidden src="/image/4.jpg" alt="image" width="500">
+            <img class="image" hidden src="/image/5.jpg" alt="image" width="500">
+            <input class="btn btn-next" type="button" value="=>">
+        </div>
     </div>
 </body>
 </html>
