@@ -1,45 +1,20 @@
-const btnNext = document.querySelector('.btn-next');
-const btnBack = document.querySelector('.btn-back');
-const image = document.querySelectorAll('.image');
 
-const slider = function (back,next){
-    let i = 0;
 
-    btnBack.hidden = true;
+const createTable = function (countTR, countTD){
+    const tableContainer = document.querySelector('.table-box');
+    const table = document.createElement('table');
+    table.setAttribute('class', 'table')
+    tableContainer.prepend(table);
 
-    const operationWithClass = function (arg){
-        if (image[i].classList.contains('active')){
-            image[i].classList.remove('active');
-            image[i].hidden = true;
+    for (let i = 0; i < countTR; i++){
+        table.innerHTML += `<tr class="tr"></tr>`
+        let tr = document.querySelectorAll('tr')
+        let sum = 0
+        for (let j = 0; j < countTD; j++){
+            tr[i].innerHTML += `<td class="td">${sum +=i+1}</td>`
         }
-        if (arg === 'plus'){
-            i++;
-        }
-        if (arg === 'minus'){
-            i--;
-        }
+    }
 
-        image[i].classList.add('active');
-        image[i].hidden = false;
-    };
+}
 
-    next.addEventListener('click', ()=>{
-        btnBack.hidden = false;
-        operationWithClass('plus');
-
-        if (image.item(image.length-1) === image[i]){
-            btnNext.hidden = true;
-        }
-    });
-
-    back.addEventListener('click', ()=>{
-        btnNext.hidden = false;
-        operationWithClass('minus');
-
-        if (image.item(0) === image[i]){
-            btnBack.hidden = true;
-        }
-    });
-};
-
-slider(btnBack,btnNext);
+createTable(10,10)
