@@ -1,33 +1,21 @@
 body {
     margin: 0;
+    background-color: pink;
 }
 
 .emoji{
-    width: 900px;
+    width: 600px;
     display: flex;
     margin: 0 auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
     height: 50vh;
 }
 
-.emoji-img{
+.emoji-box{
     width: 100px;
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
 }
-
-/*.emoji1{*/
-/*    background-image: url("/image/1.png");*/
-/*}*/
-/*.emoji2{*/
-/*    background: url("/image/2.png");*/
-/*}*/
-/*.emoji3{*/
-/*    background-image: url("/image/3.png");*/
-/*}*/
-/*.emoji4{*/
-/*    background-image: url("/image/4.png");*/
-/*}*/
-/*.emoji5{*/
-/*    background-image: url("/image/5.jpg");*/
-/*}*/
