@@ -2,21 +2,32 @@ body {
     margin: 0;
 }
 
-.table-box{
-    margin-top: 50px;
+.emoji{
+    width: 900px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    height: 50vh;
 }
 
-.table{
-    border: 1px solid black;
-    border-collapse: collapse;
-    margin-right: auto;
-    margin-left: auto;
+.emoji-img{
+    width: 100px;
+    height: 100px;
 }
 
-.td{
-    padding: 10px;
-}
-
-.tr{
-    border-bottom: 1px solid black;
-}
+/*.emoji1{*/
+/*    background-image: url("/image/1.png");*/
+/*}*/
+/*.emoji2{*/
+/*    background: url("/image/2.png");*/
+/*}*/
+/*.emoji3{*/
+/*    background-image: url("/image/3.png");*/
+/*}*/
+/*.emoji4{*/
+/*    background-image: url("/image/4.png");*/
+/*}*/
+/*.emoji5{*/
+/*    background-image: url("/image/5.jpg");*/
+/*}*/
