@@ -1,7 +1,20 @@
 "use strict";
 
-const nameProduct = new URLSearchParams(document.location.search).get("name");
-const products = document.querySelector('.products');
+const getCatalog = function (){
+    const catalog = document.createElement('aside');
+    catalog.className = 'aside';
+    document.querySelector('.main').append(catalog);
+
+    catalog.innerHTML =
+        `<h2>Категорії товарів</h2>
+        <ul class="lists">
+            <li class="item-lists"><a class="nav-link" href="?name=all-tv">Телевізори</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=notebooks">Ноутбуки</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=mobile-phones">Смартфони</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=tablets">Планшети</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=monitors">Монітори</a></li>
+        </ul>`
+}
 
 const productsOfArray = [
     {
@@ -471,6 +484,11 @@ const productsOfArray = [
 
 const getProducts = function (productsArray){
 
+    const nameProduct = new URLSearchParams(document.location.search).get("name");
+    const products = document.createElement('div');
+    products.className = 'products';
+    document.querySelector('.main').append(products);
+
     productsArray.forEach(item => {
         if (nameProduct === item.source){
             products.innerHTML += `<div class = "product-box">
@@ -523,6 +541,7 @@ const buttonBuy = document.querySelector('.buy');
     });
 };
 
+getCatalog();
 
 getProducts(productsOfArray);
 
