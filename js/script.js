@@ -538,7 +538,7 @@ const buttonBuy = document.querySelector('.buy');
             massage.remove()
             const fullUrl = document.location.href
             const indexEl = fullUrl.indexOf("?");
-            location.href = document.body.innerHTML = indexEl >= 0 ? fullUrl.substring(0, indexEl) : fullUrl;
+            location.href = indexEl >= 0 ? fullUrl.substring(0, indexEl) : fullUrl;
         }, 1500);
     });
 };
