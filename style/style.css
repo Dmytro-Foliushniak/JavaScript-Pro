@@ -1,21 +1,94 @@
 body {
     margin: 0;
     background-color: pink;
+    height: 100vh;
+    color: black;
 }
 
-.emoji{
-    width: 600px;
+.main{
     display: flex;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    height: 50vh;
+    position: relative;
 }
 
-.emoji-box{
-    width: 100px;
-    display: flex;
-    flex-direction: column;
+.aside{
+    width: 235px;
+    margin-top: 50px;
+    margin-left: 50px;
+    flex-shrink: 0;
+}
+
+.lists{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.item-lists{
+margin-bottom: 10px;
+}
+
+.nav-link{
+    padding: 10px 30px;
     background-color: orange;
+    display: block;
+    border: 1px solid black;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.image{
+   width: 100px;
+}
+
+.products{
+    display: flex;
+    gap: 50px;
+    padding: 120px 40px 20px;
+    width: 700px;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    align-content: flex-start;
+}
+
+.product-box{
+    background-color: white;
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    flex: 0 1 calc(100% / 3 - 55px)
+}
+
+.product-image{
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+}
+
+.name-product{
+    height: 32px;
+    overflow: hidden;
+    margin: 0 0 0;
+    padding: 0 0 5px;
+}
+
+.itemProduct {
+    padding:120px 20px 0 0 ;
+}
+
+.massage{
+    z-index: 999;
+    background-color: orange;
+    position:fixed;
+    width: 250px;
+    padding: 10px 20px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 12px;
+    font: 18px/14px Arial sans-serif;
+    text-align: center;
 }
