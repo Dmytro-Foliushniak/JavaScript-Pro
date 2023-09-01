@@ -529,14 +529,16 @@ const buttonBuy = document.querySelector('.buy');
 
     buttonBuy.addEventListener('click', ()=>{
 
-        let massage = document.createElement('div');
+        const massage = document.createElement('div');
         massage.className = "massage";
         massage.innerHTML = "<b>Вітаю</b> з успішною покупкою";
         document.querySelector('.main').append(massage);
 
         setTimeout(function (){
             massage.remove()
-            location.href = 'http://localhost:63342/JavaScript-Pro/html/index.html'
+            const fullUrl = document.location.href
+            const indexEl = fullUrl.indexOf("?");
+            location.href = document.body.innerHTML = indexEl >= 0 ? fullUrl.substring(0, indexEl) : fullUrl;
         }, 1500);
     });
 };
