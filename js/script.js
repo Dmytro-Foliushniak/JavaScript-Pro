@@ -2,6 +2,7 @@ const getParamRequest = function (){
     const form = document.querySelector('.form')
     form.addEventListener('submit', (event)=>{
         event.preventDefault();
+        form.hidden = true
 
         const table = document.createElement('table');
         table.className = 'table';
@@ -37,9 +38,15 @@ const getParamRequest = function (){
                 }
 
         }
+                const checkbox = document.querySelectorAll('.language')
 
-            trForHead.insertAdjacentHTML("beforeend", `<th class="table-head">${String(...setNameLanguage)}</th>`);
-            trForBody.insertAdjacentHTML("beforeend", `<td class="table-content">${[...setValueLanguage]}</td>`);
+                for (let item of checkbox){
+                        if (item.checked){
+                            trForHead.insertAdjacentHTML("beforeend", `<th class="table-head">${String(...setNameLanguage)}</th>`);
+                            trForBody.insertAdjacentHTML("beforeend", `<td class="table-content">${[...setValueLanguage]}</td>`);
+                            break;
+                        }
+                }
     })
 
 }

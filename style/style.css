@@ -2,6 +2,10 @@ body {
     margin: 0;
     color: black;
 }
+.table{
+    /*margin: 0 auto;*/
+    transform: translate(50%,50%);
+}
 
 .table, .table-content, .table-head {
     border: 1px solid #333;
