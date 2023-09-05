@@ -11,6 +11,42 @@
 </head>
 <body>
 <main class="main"></main>
-
+<form class="form" action="">
+    <label for="label-name">Ім'я та Призвіще</label>
+    <input class="name" type="text" name="fullName" id="label-name">
+<!--    <label for="label-surname">Фамілія</label>-->
+<!--    <input type="text" name="surname" id="label-surname">-->
+    <label for="label-birthDate">Дата народження</label>
+    <input type="text" name="birthDate" id="label-birthDate">
+    <fieldset>
+        <legend>Ваша стать</legend>
+        <input class="gender" type="radio" name="gender" id="gender-mane" value="man" data-off>
+        <label for="gender-mane">Чоловіча</label>
+        <input class="gender" type="radio" name="gender" id="gender-female" value="female" data-off>
+        <label for="gender-female">Жіноча</label>
+        <input class="gender" type="radio" name="gender" id="gender-other" value="other" data-off>
+        <label for="gender-other">Інша</label>
+    </fieldset>
+    <label for="form-city">Вкажіть ваше місто</label>
+    <select name="city" id="form-city">
+        <option value="Kyiv">Київ</option>
+        <option value="Odessa">Одеса</option>
+        <option value="Lviv">Львів</option>
+        <option value="Vinnoica">Вінниця</option>
+        <option value="Cherckasy">Черкаси</option>
+        <option value="Polatava">Полтава</option>
+        <option value="Chenihiv">Чернігів</option>
+    </select>
+    <label for="address">Вкажіть вашу адрессу</label>
+    <textarea name="address" id="address" cols="30" rows="0"></textarea>
+    <fieldset>
+        <legend>Мови якими володієте</legend>
+        <input class="language" type="checkbox" name="language" id="language-english" value="English" data-off>
+        <label for="language-english">Англьска</label>
+        <input class="language" type="checkbox" name="language" id="language-ukrainian" value="Ukrainian" data-off>
+        <label for="language-ukrainian">Українська</label>
+    </fieldset>
+    <input class="submit" type="submit" value="Відправити" data-off>
+</form>
 </body>
 </html>
