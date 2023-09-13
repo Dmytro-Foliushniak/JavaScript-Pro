@@ -3,23 +3,6 @@
 const globalProductFunction = function () {
 
     const nameArticle = new URLSearchParams(document.location.search).get("article");
-    const orderForm = document.querySelector('.orderForm')
-
-    const getCatalog = function () {
-        const catalog = document.createElement('aside');
-        catalog.className = 'aside';
-        document.querySelector('.main').append(catalog);
-
-        catalog.innerHTML =
-            `<h2>Категорії товарів</h2>
-        <ul class="lists">
-            <li class="item-lists"><a class="nav-link" href="?name=all-tv">Телевізори</a></li>
-            <li class="item-lists"><a class="nav-link" href="?name=notebooks">Ноутбуки</a></li>
-            <li class="item-lists"><a class="nav-link" href="?name=mobile-phones">Смартфони</a></li>
-            <li class="item-lists"><a class="nav-link" href="?name=tablets">Планшети</a></li>
-            <li class="item-lists"><a class="nav-link" href="?name=monitors">Монітори</a></li>
-        </ul>`
-    }
 
     const productsOfArray = [
         {
@@ -151,22 +134,22 @@ const globalProductFunction = function () {
         },
         {
             source: 'notebooks',
-            name: 'Ноутбук Acer Aspire 7 A715-42G-R0VS (NH.QBFEU.00A) Charcoal Black / AMD Ryzen 5 5500U / RAM 8 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650',
+            name: 'Ноутбук Acer Aspire 7 A715-42G-R0VS (NH.QBFEU.00A) Charcoal Black',
             price: '25 999₴',
             image: '/image/Notebook/Note-1.webp',
             aboutProduct: {
                 article: 'acer_nh_qbfeu_00a',
-                description: 'Скоро з`явиться'
+                description: 'AMD Ryzen 5 5500U / RAM 8 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650'
             }
         },
         {
             source: 'notebooks',
-            name: 'Ноутбук Lenovo IdeaPad Gaming 3 15IHU6 (82K10190RA) Shadow Black / 15.6" IPS Full HD 120 Гц / Intel Core i5-11320H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050',
+            name: 'Ноутбук Lenovo IdeaPad Gaming 3 15IHU6 (82K10190RA) Shadow Black',
             price: '32 999₴',
             image: '/image/Notebook/Note-2.webp',
             aboutProduct: {
                 article: 'lenovo-82k10190ra',
-                description: 'Ноутбук для настоящих геймеров\n' +
+                description: 'Ноутбук для настоящих геймеров 15.6" IPS Full HD 120 Гц / Intel Core i5-11320H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050\n' +
                     'Благодаря процессору Intel Core 11-го поколения игровой ноутбук Lenovo IdeaPad Gaming 3 15IHU6 обладает всеми возможностями, чтобы превзойти в стрельбе, опередить и перехитрить любого противника.\n' +
                     '\n' +
                     'Новый двигатель для ваших игр\n' +
@@ -181,12 +164,12 @@ const globalProductFunction = function () {
         },
         {
             source: 'notebooks',
-            name: 'Ноутбук ASUS Vivobook 15 X1500EA-BQ3244 (90NB0TY5-M036X0) Indie Black / 15.6" IPS Full HD / Intel Core i3-1115G4 / RAM 12 ГБ / SSD 512 ГБ',
+            name: 'Ноутбук ASUS Vivobook 15 X1500EA-BQ3244 (90NB0TY5-M036X0) Indie Black',
             price: '17 499₴',
             image: '/image/Notebook/Note-3.webp',
             aboutProduct: {
                 article: 'asus-90nb0ty5-m036x0',
-                description: 'Современные компоненты\n' +
+                description: 'Ноутбук 15.6" IPS Full HD / Intel Core i3-1115G4 / RAM 12 ГБ / SSD 512 ГБ\n' +
                     'Vivobook 15 – это ноутбук на каждый день, готовый справиться с любыми задачами, будь то офисные или личные дела, рабочие или развлекательные приложения. Процессор Intel Core 11-го поколения значительно превосходит по производительности своих предшественников. \n' +
                     '\n' +
                     'Комфорт для глаз\n' +
@@ -211,12 +194,12 @@ const globalProductFunction = function () {
         },
         {
             source: 'notebooks',
-            name: 'Ноутбук HP Pavilion 15-eh1106ua (4A7N2EA) Silver / AMD Ryzen 5 5500U / RAM 16 ГБ / SSD 512 ГБ',
+            name: 'Ноутбук HP Pavilion 15-eh1106ua (4A7N2EA) Silver',
             price: '23 999₴',
             image: '/image/Notebook/Note-5.webp',
             aboutProduct: {
                 article: 'hp-4a7n2ea',
-                description: 'Встречайте HP Pavilion, который затмит все ваши представления о ноутбуках и предоставит настоящую свободу творчества. Он обладает стильным дизайном и оснащен всеми функциями, необходимыми для воплощения ваших идей.\n' +
+                description: 'Встречайте HP Pavilion AMD Ryzen 5 5500U / RAM 16 ГБ / SSD 512 ГБ, который затмит все ваши представления о ноутбуках и предоставит настоящую свободу творчества. Он обладает стильным дизайном и оснащен всеми функциями, необходимыми для воплощения ваших идей.\n' +
                     '\n' +
                     'Все необходимое для работы\n' +
                     'Благодаря мощному аккумулятору выполняйте задачи любой сложности и будьте уверены, что у вас останется достаточно заряда для того, чтобы расслабиться вечером за любимыми развлечениями.\n' +
@@ -283,7 +266,7 @@ const globalProductFunction = function () {
         },
         {
             source: 'tablets',
-            name: 'Планшет Samsung Galaxy Tab S9 5G 12/256GB Graphite (SM-X716BZAESEK) + Сертификаты на 7299 грн в подарок!',
+            name: 'Планшет Samsung Galaxy Tab S9 5G 12/256GB Graphite (SM-X716BZAESEK)',
             price: '49 999₴',
             image: '/image/Tablets/Tab-1.webp',
             aboutProduct: {
@@ -293,7 +276,7 @@ const globalProductFunction = function () {
         },
         {
             source: 'tablets',
-            name: 'Планшет Lenovo Tab M10 HD LTE 64GB Iron Grey + чехол и пленка',
+            name: 'Планшет Lenovo Tab M10 HD LTE 64GB Iron Grey',
             price: '6 999₴',
             image: '/image/Tablets/Tab-2.webp',
             aboutProduct: {
@@ -333,11 +316,11 @@ const globalProductFunction = function () {
         },
         {
             source: 'monitors',
-            name: 'Монитор 23.6" HP X24c (9FM22AA) Full HD Curved VA 1500R / 144 Hz / 4ms GtG / 6-Bit + FRC / sRGB 100% / Adaptive Sync / AMD FreeSync Premium / Low Blue Light / Flicker-Free',
+            name: 'Монитор 23.6" HP X24c (9FM22AA) Full HD Curved VA 1500R',
             price: '5 199₴',
             image: '/image/Monitors/Mon-1.webp',
             aboutProduct: {
-                description: 'Погрузись в игру\n' +
+                description: 'Монітор 144 Hz / 4ms GtG / 6-Bit + FRC / sRGB 100% / Adaptive Sync / AMD FreeSync Premium / Low Blue Light / Flicker-Free \n' +
                     'Погрузись в неизведанные миры. Монитор с изгибом 1500R и разрешением Full HD обеспечивает эффект полного погружения. Благодаря частоте обновления 144 Гц уменьшается размытие, и изображение появляется вдвое быстрее, чем на других мониторах . Теперь ты можешь навсегда забыть о лагах и наслаждаться плавной игрой, которую обеспечивает технология AMD FreeSync Premium . Ты можешь отрегулировать монитор так, чтобы не чувствовать напряжения в спине и шее.\n' +
                     '\n' +
                     'Настоящий экшн на изогнутом экране\n' +
@@ -354,11 +337,11 @@ const globalProductFunction = function () {
         },
         {
             source: 'monitors',
-            name: 'Монитор 28" Samsung Odyssey G7 LS28BG702 (LS28BG702EIXUA) UHD 4K HDR400 / IPS 8-Bit + FRC / 144Гц / DCI-P3 90% / G-SYNC Compatible / AMD FreeSync Premium Pro / HDMI 2.1 Console Ready / Tizen Smart TV / Wi-Fi / Bluetooth',
+            name: 'Монитор 28" Samsung Odyssey G7 LS28BG702 (LS28BG702EIXUA) UHD 4K HDR400',
             price: '19 999₴',
             image: '/image/Monitors/Mon-2.webp',
             aboutProduct: {
-                description: 'Максимально реалистичные миры на вашем экране\n' +
+                description: 'Монітор IPS 8-Bit + FRC / 144Гц / DCI-P3 90% / G-SYNC Compatible / AMD FreeSync Premium Pro / HDMI 2.1 Console Ready / Tizen Smart TV / Wi-Fi / Bluetooth\n' +
                     'UHD-разрешение и IPS-панель\n' +
                     'Максимальная четкость каждой детали на экране. Благодаря плотности пикселей, увеличенной в 4 раза по сравнению с разрешением FHD, игры откроются для вас в совершенно новом свете. IPS-панель отличается исключительно чистой цветопередачей и широким углом обзора в 178°, благодаря чему цвет изображения на экране остается неизменным под любым углом обзора. Возросшее количество пикселей и увеличенная глубина изображения делают игры реальными как никогда.\n' +
                     '\n' +
@@ -398,7 +381,7 @@ const globalProductFunction = function () {
         },
         {
             source: 'monitors',
-            name: 'Монитор 27" Asus TUF Gaming VG27AQ (90LM0500-B01370 / B03370) -- IPS 2K / 165 Гц / 8-Bit / 99% sRGB / G-Sync Сompatible / Adaptive-Sync / HDR10',
+            name: 'Монитор 27" Asus TUF Gaming VG27AQ (90LM0500-B01370 / B03370)',
             price: '12 499₴',
             image: '/image/Monitors/Mon-3.webp',
             aboutProduct: {
@@ -459,11 +442,11 @@ const globalProductFunction = function () {
         },
         {
             source: 'monitors',
-            name: 'Монитор 31.5" Dell G3223D (210-BDXV) 2К QHD IPS / 165Гц / 8-Bit + FRC / DCI-P3 95% / G-SYNC Compatible / FreeSync Premium Pro / Display HDR 400 / USB Type-C 90W / Console Mode 120Hz',
+            name: 'Монитор 31.5" Dell G3223D (210-BDXV) 2К QHD IPS',
             price: '6 999₴',
             image: '/image/Monitors/Mon-5.webp',
             aboutProduct: {
-                description: 'Невероятное визуальное качество\n' +
+                description: 'Монітор / 165Гц / 8-Bit + FRC / DCI-P3 95% / G-SYNC Compatible / FreeSync Premium Pro / Display HDR 400 / USB Type-C 90W / Console Mode 120Hz' +
                     'Ваши любимые игровые миры дополнены реалистичной графикой и яркими цветами на этом мониторе QHD с сертификацией VESA DisplayHDR400. Вам понравятся более яркие цвета и более глубокий черный цвет благодаря 95-процентному цветовому охвату DCI-P3 и изображению без мерцания, которое одновременно уменьшает воздействие синего света без какого-либо ухудшения цвета.\n' +
                     '\n' +
                     'Быстрый и отзывчивый геймплей\n' +
@@ -487,15 +470,125 @@ const globalProductFunction = function () {
         }
     ]
 
+
+    // Создаем блок Каталог товаров
+        const catalog = document.createElement('aside');
+        catalog.className = 'aside';
+        document.querySelector('.main').append(catalog);
+
+        catalog.innerHTML =
+            `<h2>Категорії товарів</h2>
+        <ul class="lists">
+            <li class="item-lists"><a class="nav-link" href="?name=all-tv">Телевізори</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=notebooks">Ноутбуки</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=mobile-phones">Смартфони</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=tablets">Планшети</a></li>
+            <li class="item-lists"><a class="nav-link" href="?name=monitors">Монітори</a></li>
+        </ul>`
+
+    // Создаем кнопку с нашими покупками
+        const header = document.createElement('header')
+        header.className = 'header'
+        header.insertAdjacentHTML('beforeend', `<div class="order"><a class="order-link" href="?myOrder">Мої Замовлення</a></div>`)
+        document.body.prepend(header)
+
+
+    // Создаем блок с нашими покупками
+    const createOrderDetail = function (allProduct){
+        const orderProduct = JSON.parse(localStorage.getItem('DATA_ORDER'))
+
+        const orderParam = document.location.search.substring(1)
+
+        if (orderParam === 'myOrder'){
+            document.querySelector('.main').insertAdjacentHTML('beforeend', "<div class='order-box'><h2>Мої замовлення</h2></div>")
+            const order = document.querySelector('.order-box')
+
+            orderProduct.forEach((item,index)=>{
+                order.insertAdjacentHTML('beforeend', `<div class="order-container" data-index="${index}"><p class="order-text">
+            Ціна покупки: ${item.price}, Дата покупки: ${item['Time']}</p>
+            <button class="detail-order">Деталі</button>
+            <img class="delete-btn" src ='/image/icon/trash-can-regular.svg' alt="img">
+            </div> `)
+            })
+
+            deleteOrderProduct(orderProduct)
+            getDetailOrder(orderProduct)
+        }
+
+
+
+    }
+
+    //Фунция для вывода доп информации о покупке
+    const getDetailOrder = function (orderProduct){
+        const orderBox = document.querySelector('.order-box')
+
+        orderBox.addEventListener('click',(event)=>{
+
+            const getParentBox = event.target.parentNode
+            const getIndexOrder = event.target.parentNode.getAttribute('data-index')
+
+            if (event.target.className === 'detail-order' || event.target.className === 'order-text') {
+                orderProduct.forEach((item, index) => {
+                    if (+getIndexOrder === index) {
+                        if (!getParentBox.classList.contains('active')){
+                            getParentBox.classList.add('active')
+                            getParentBox.insertAdjacentHTML('afterend', `<div class="order-box-detail">
+                            <p class="detail-text">Назва товару: ${item.name} <br/> Кількість:${item['CountProduct']} <br/> Ціна:${item.price} </p></div>`)
+                        } else {
+                            getParentBox.classList.remove('active')
+                            document.querySelector('.order-box-detail').remove()
+                        }
+                    }
+                })
+            }
+        })
+    }
+
+    //Фунция удаления с окно "Мої замовлення"
+    const deleteOrderProduct = function (orderProduct){
+
+        const orderBox = document.querySelector('.order-box')
+
+        orderBox.addEventListener('click', (event)=>{
+
+            let getIndex = event.target.parentNode.getAttribute('data-index')
+
+            if (event.target.className === 'delete-btn'){
+                event.target.parentNode.remove()
+                orderProduct.splice(getIndex,1)
+
+                const orderContainer = document.querySelectorAll('.order-container')
+                let getNewIndexInArray = []
+                //Получаю обновленненный набор индексов
+                orderProduct.forEach((item,index)=>{
+                    getNewIndexInArray.push(index)
+                })
+                //Удаляю и вставляю в дата-индекс обновленные индексы елементов
+                for (let i=0; i<orderContainer.length; i++){
+                    orderContainer[i].removeAttribute('data-index')
+                    orderContainer[i].setAttribute('date-index', getNewIndexInArray[i])
+
+                }
+                localStorage.setItem('DATA_ORDER', JSON.stringify(orderProduct))
+            }
+        })
+    }
+
+
+
+    // Создаем функцию по получению продуктов из массива обьектов динамически для каждой категории
     const getProducts = function (productsArray) {
 
         const nameProduct = new URLSearchParams(document.location.search).get("name");
         const products = document.createElement('div');
         products.className = 'products';
         document.querySelector('.main').append(products);
+        products.style.display = 'none'
 
         productsArray.forEach(item => {
             if (nameProduct === item.source) {
+                products.style.display = ''
                 products.innerHTML += `<div class = "product-box">
             <a class="product-link" href='?name=${nameProduct}&article=${item.aboutProduct.article}'>
             <img class = "product-image" src ='${item.image}' alt="img">
@@ -507,8 +600,9 @@ const globalProductFunction = function () {
         });
     };
 
-    const getInformationAboutProduct = function (itemArray) {
 
+    // Создаем функцию для получения информации о продукте
+    const getInformationAboutProduct = function (itemArray) {
 
         const itemProduct = document.createElement('div');
         itemProduct.className = 'itemProduct';
@@ -529,6 +623,7 @@ const globalProductFunction = function () {
     };
 
 
+    //Создаем функцию по созданию формы для оформления покупки. Форма отображается после нажатия на кнопку "купить"
     const createOrderForm = function () {
         const buttonBuy = document.querySelector('.buy')
         document.querySelector('.main').insertAdjacentHTML('beforeend', `<form hidden class="orderForm">
@@ -563,17 +658,20 @@ const globalProductFunction = function () {
         const orderForm = document.querySelector('.orderForm')
 
         buttonBuy.addEventListener('click', () => {
+            document.querySelector('.main').style.justifyContent = 'space-between'
             orderForm.hidden = false
-            window.scrollTo(0, 1000);
+            window.scrollTo(0, 0);
         })
 
     }
 
+    // Создаем функцию для проверки на обязательное заполнение поле Форми. Работает после нажатия на кнопку "Оформити Замовлення".
     const formValidation = function () {
-        const orderForm = document.querySelector('.orderForm')
-        const formValue = Array.from(document.querySelector('.orderForm'))
+        const orderForm = document.querySelector('.orderForm');
+        const formValue = Array.from(document.querySelector('.orderForm'));
+
         orderForm.addEventListener('submit', (event) => {
-            event.preventDefault()
+            event.preventDefault();
 
             const massage = document.createElement('div');
             massage.className = "massage";
@@ -601,14 +699,18 @@ const globalProductFunction = function () {
                     acc[item.name] = item.value
                 }
                 acc[item.name] = item.value
+                acc['Time'] = new Date().toISOString()
                 return acc
             },{})
 
-            localStorage.setItem('DATA_ITEM', JSON.stringify(data))
+            //Добавляем нашу форму в LocalStorage
+            localStorage.setItem('DATA_FORM', JSON.stringify(data))
         })
 
     }
 
+
+    //Создаем функцию для вивода информации о заказаном продукте.
     const getInformationAboutProductOrder = function (itemArray) {
 
         const orderForm = document.querySelector('.orderForm')
@@ -620,7 +722,7 @@ const globalProductFunction = function () {
 
             orderForm.addEventListener('submit', (event) => {
                 event.preventDefault()
-                const data = JSON.parse(localStorage.getItem('DATA_ITEM'))
+                const data = JSON.parse(localStorage.getItem('DATA_FORM'))
                     if (data['fullName'] !== '' && data['warehouse'] !== ''){
                         document.querySelector('.main').append(blockInformationAboutProduct)
                         itemArray.forEach(item=>{
@@ -628,6 +730,7 @@ const globalProductFunction = function () {
                                 blockInformationAboutProduct.insertAdjacentHTML('beforeend', `<p class="massage">
                             ${data['fullName']} Ви замовили ${item.name} по ціні ${item.price} на відділенна ${data['warehouse']}
                             </p>`)
+                                addProductInLocalStorage(item)
                             }
                         })
                         checkButton.setAttribute('disabled', 'true')
@@ -635,9 +738,29 @@ const globalProductFunction = function () {
             })
 
     }
+    // Добавляем продукт в локал сторенж.
+    const addProductInLocalStorage = function (product){
+        let data = [];
 
+        const getItemProduct = localStorage.getItem('DATA_ORDER')
+        const orderForm = JSON.parse(localStorage.getItem('DATA_FORM'))
 
-    getCatalog();
+        if (getItemProduct !== null){
+                data = JSON.parse(getItemProduct)
+        }
+
+        Object.assign(product, orderForm)
+        data.push(product)
+        localStorage.setItem('DATA_ORDER', JSON.stringify(data))
+
+        return data
+    }
+
+    // getCatalog();
+
+    // createCart()
+
+    createOrderDetail(productsOfArray)
 
     getProducts(productsOfArray);
 
