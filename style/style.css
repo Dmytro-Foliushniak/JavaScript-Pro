@@ -51,7 +51,7 @@ h2{
 .order-box{
     background-color:#ff7c00;
     border-radius: 7px;
-    transform: translate(50%);
+    /*transform: translate(50%);*/
     padding: 0 20px;
     width: 560px;
 }
@@ -61,10 +61,24 @@ h2{
     justify-content: space-between;
     border: 2px solid crimson;
     border-radius: 7px;
+    margin-bottom: 5px;
 }
 
 .order-text{
     padding: 0 10px;
+    cursor: pointer;
+}
+.detail-order{
+    background-color: transparent;
+    border: none;
+    align-self: center;
+}
+
+
+.detail-order-img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .delete-btn{

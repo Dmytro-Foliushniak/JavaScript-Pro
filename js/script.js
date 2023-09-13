@@ -500,17 +500,18 @@ const globalProductFunction = function () {
         const orderParam = document.location.search.substring(1)
 
         if (orderParam === 'myOrder'){
+            catalog.remove()
+            document.querySelector('.main').style.justifyContent = 'center'
             document.querySelector('.main').insertAdjacentHTML('beforeend', "<div class='order-box'><h2>Мої замовлення</h2></div>")
             const order = document.querySelector('.order-box')
 
             orderProduct.forEach((item,index)=>{
                 order.insertAdjacentHTML('beforeend', `<div class="order-container" data-index="${index}"><p class="order-text">
             Ціна покупки: ${item.price}, Дата покупки: ${item['Time']}</p>
-            <button class="detail-order">Деталі</button>
+            <button class="detail-order"><img class="detail-order-img" src="/image/icon/circle-down-regular.svg" alt="img"></button>
             <img class="delete-btn" src ='/image/icon/trash-can-regular.svg' alt="img">
             </div> `)
             })
-
             deleteOrderProduct(orderProduct)
             getDetailOrder(orderProduct)
         }
@@ -525,10 +526,11 @@ const globalProductFunction = function () {
 
         orderBox.addEventListener('click',(event)=>{
 
-            const getParentBox = event.target.parentNode
-            const getIndexOrder = event.target.parentNode.getAttribute('data-index')
+            const getParentBox = event.target.closest('.order-container')
+            console.log(getParentBox)
+            const getIndexOrder = event.target.closest('.order-container').getAttribute('data-index')
 
-            if (event.target.className === 'detail-order' || event.target.className === 'order-text') {
+            if (event.target.className === 'detail-order-img' || event.target.className === 'order-text') {
                 orderProduct.forEach((item, index) => {
                     if (+getIndexOrder === index) {
                         if (!getParentBox.classList.contains('active')){
@@ -755,10 +757,6 @@ const globalProductFunction = function () {
 
         return data
     }
-
-    // getCatalog();
-
-    // createCart()
 
     createOrderDetail(productsOfArray)
 
