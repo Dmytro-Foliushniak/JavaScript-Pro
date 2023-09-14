@@ -1,0 +1,17 @@
+{
+  "name": "javascript-pro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "HomeWork"
+  },
+  "keywords": [
+    "Hi"
+  ],
+  "author": "Foliushniak Dmytro",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
