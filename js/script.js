@@ -539,7 +539,8 @@ const globalProductFunction = function () {
                             <p class="detail-text">Назва товару: ${item.name} <br/> Кількість:${item['CountProduct']} <br/> Ціна:${item.price} </p></div>`)
                         } else {
                             getParentBox.classList.remove('active')
-                            document.querySelector('.order-box-detail').remove()
+                            getParentBox.nextSibling.remove()
+
                         }
                     }
                 })
