@@ -70,7 +70,10 @@ const globalProductFunction = function () {
 
     const getOrderForm = function (){
         const buttonBuy = document.querySelector('.buy')
-        buttonBuy.addEventListener('click', ()=>{createOrderForm()})
+        if (buttonBuy){
+            buttonBuy.addEventListener('click', ()=>{createOrderForm()})
+        }
+
     }
 
 
