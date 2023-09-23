@@ -7,7 +7,11 @@ const getPostsAPI = async function (){
     const response = await DATA_API;
     const posts = await response.json();
 
-    getPost(posts);
+    try {
+        getPost(posts);
+    }catch (error){
+        console.log(error)
+    }
 }
 
 const getPost = function (data){
