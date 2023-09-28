@@ -8,3 +8,10 @@ body {
 .main{
     margin: 150px 20px 0;
 }
+
+.comment-block{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding-bottom: 20px;
+}
