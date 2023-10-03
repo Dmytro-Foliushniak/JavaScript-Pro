@@ -1,14 +1,14 @@
 "use strict";
 
 const globalProductFunction = function () {
-
-    const nameArticle = new URLSearchParams(document.location.search).get("article");
+    const parsedURL = new URLSearchParams(document.location.search)
+    const nameArticle = parsedURL.get("article");
     const mainWrapper = document.querySelector('.main');
 
     // Создаем блок Каталог товаров
         const catalog = document.createElement('aside');
         catalog.className = 'aside';
-        document.querySelector('.main').append(catalog);
+        mainWrapper.append(catalog);
 
         catalog.innerHTML =
             `<h2>Категорії товарів</h2>
@@ -35,8 +35,8 @@ const globalProductFunction = function () {
 
         if (orderParam === 'myOrder'){
             catalog.remove()
-            document.querySelector('.main').style.justifyContent = 'center'
-            document.querySelector('.main').insertAdjacentHTML('beforeend', "<div class='order-box'><h2>Мої замовлення</h2></div>")
+            mainWrapper.style.justifyContent = 'center'
+            mainWrapper.insertAdjacentHTML('beforeend', "<div class='order-box'><h2>Мої замовлення</h2></div>")
             const order = document.querySelector('.order-box')
 
             orderProduct.forEach((item,index)=>{
@@ -46,16 +46,17 @@ const globalProductFunction = function () {
             <img class="delete-btn" src ='/image/icon/trash-can-regular.svg' alt="img">
             </div> `)
             })
-            deleteOrderProduct(orderProduct)
-            getDetailOrder(orderProduct)
+
+            const orderBox = document.querySelector('.order-box')
+            orderBox.addEventListener('click',(event)=>{
+                deleteOrderProduct(orderProduct,event)
+                getDetailOrder(orderProduct,event)
+            })
         }
     }
 
     //Фунция для вывода доп информации о покупке
-    const getDetailOrder = function (orderProduct){
-        const orderBox = document.querySelector('.order-box')
-
-        orderBox.addEventListener('click',(event)=>{
+    const getDetailOrder = function (orderProduct,event){
 
             const getParentBox = event.target.closest('.order-container')
 
@@ -75,15 +76,10 @@ const globalProductFunction = function () {
                     }
                 })
             }
-        })
     }
 
     //Фунция удаления с окно "Мої замовлення"
-    const deleteOrderProduct = function (orderProduct){
-
-        const orderBox = document.querySelector('.order-box')
-
-        orderBox.addEventListener('click', (event)=>{
+    const deleteOrderProduct = function (orderProduct,event){
 
             let getIndex = event.target.parentNode.getAttribute('data-index')
 
@@ -106,12 +102,11 @@ const globalProductFunction = function () {
                 }
                 localStorage.setItem('DATA_ORDER', JSON.stringify(orderProduct))
             }
-        })
     }
 
     // Создаем функцию по получению продуктов из массива обьектов динамически для каждой категории
     const getProducts = function (productsArray) {
-        const catalogName = new URLSearchParams(document.location.search).get("name");
+        const catalogName = parsedURL.get("name");
         if (!catalogName) {
             return;
         }
@@ -177,7 +172,6 @@ const globalProductFunction = function () {
             orderForm.remove()
         }
 
-        // const buttonBuy = document.querySelector('.buy')
         mainWrapper.insertAdjacentHTML('beforeend', `<form novalidate class="orderForm">
             <div class="block-form">
             <label for="fullName" class="pib">Прізвище Ім'я по Батькові</label>
@@ -200,7 +194,7 @@ const globalProductFunction = function () {
             <label class="radio" for="bank-card-payment">Оплата банківською картою</label>
             <input class="radio" type="radio" name="optionsPay" id="bank-card-payment" value="bankCardPayment">
             <label for="count-product">Кількість товару</label>
-            <input type="number" name="CountProduct" id="count-product">
+            <input type="number" name="CountProduct" id="count-product" required>
             <label for="order-description">Комментарій до замовлення</label>
             <textarea name="orderDescription" id="order-description" cols="30" rows="10"></textarea>
             <input class="checkoutButton" type="submit" value="Оформити замовлення">
@@ -219,17 +213,12 @@ const globalProductFunction = function () {
     // Создаем функцию для проверки на обязательное заполнение поле Форми. Работает после нажатия на кнопку "Оформити Замовлення".
     const formValidation = function (thisElement){
 
-        const fullName = document.querySelector('.input-pib')
-        const warehouse = document.querySelector('.input-warehouse')
-        console.log(warehouse)
-
-        if (fullName.validity.valid && warehouse.validity.valid){
+        if (thisElement.checkValidity()){
             validForm(thisElement,productsOfArray,nameArticle)
 
             addProductInLocalStorage()
 
-        }
-        if (!fullName.validity.valid || !warehouse.validity.valid){
+        }else {
             invalidForm(thisElement)
         }
     }
