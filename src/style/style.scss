@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    background-color: pink;
+    height: 100vh;
+    color: black;
+}
+
+.main{
+    margin: 150px 0 0;
+}
+
+.weather{
+    width: 500px;
+    background-color: deepskyblue;
+    border-radius: 7px;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+
+.weather-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-city{
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+.weather-icon{
+    align-self: center;
+}
+
+.weather-param{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.weather-item{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
