@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    background-color: white;
+    font: 12px/14px 'Trebuchet MS', sans-serif;
+    color: #525252;
+}
+
+.main-conteiner{
+    width: 902px;
+    margin: 0 auto;
+    padding: 25px 0 35px;
+    overflow: hidden;
+}

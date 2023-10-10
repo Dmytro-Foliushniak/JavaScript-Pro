@@ -1,0 +1,54 @@
+.content{
+    width: 621px;
+    float: right;
+}
+
+
+.firshelp-img{
+    border: 13px solid #dfdfdf;
+    margin-bottom: 23px;
+}
+
+.content-box{
+    margin: 0;
+    padding-left: 20px;
+}
+
+.content-title{
+    color: #ed1a2d;
+    font-size: 22px;
+    line-height: 27px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.breadcrumbs{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.breadcrumbs-item{
+    text-decoration: none;
+    color:#928564;
+    font-size: 10px;
+    line-height: 16px;
+    display: inline-block;
+}
+
+.breadcrumbs-link{
+    text-decoration: none;
+    color:#928564;
+}
+
+.breadcrumbs-link:hover{
+    text-decoration: underline;
+}
+
+.section-text{
+    margin: 0 0 15px;
+}
+
+.section-text:last-child{
+    margin: 0;
+}
