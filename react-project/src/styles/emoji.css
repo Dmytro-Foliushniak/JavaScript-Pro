@@ -1,0 +1,14 @@
+.emoji{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.emoji-list, .emoji-winner{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+}
