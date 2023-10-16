@@ -2,13 +2,3 @@
   display: flex;
   flex-direction: column;
 }
-.winner-box{
-  align-self: center;
-}
-.btn-winner{
-  align-self: center;
-}
-
-.emoji-winner{
-  margin: 0 auto;
-}
