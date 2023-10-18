@@ -1,46 +1,45 @@
 import SmileVoice from "./components/SmileVoice";
+import EmojiWinner from "./components/EmojiWinner";
 import {useState} from 'react';
 import '../src/App.css'
 
 
 function App() {
-    const [winner, setWinner] = useState(null)
-    const [elem, setElement] = useState('')
+    const [Emoji, setEmoji] = useState(null)
+    const [maxVotes, setMaxVotes] = useState(null)
+    const [renderWinner, setRenderWinner] = useState(false)
+    const [votesWinner, setVotesWinner] = useState(null)
+    const [emojiWinner, setEmojiWinner] = useState(null)
 
-     function updateValue(elem){
-        setElement(elem)
+    function updateValue(emojiId, count){
+
+         if (count > maxVotes){
+             setMaxVotes(count)
+             setEmoji(emojiId)
+        }
+
     }
 
     function showResult(){
-        let maxVotes = null;
-        let winnerId = null;
-            const votesT = elem.value
-            if (votesT > maxVotes){
-                maxVotes = votesT
-                winnerId = elem
-            }
-        if (winnerId) {
-            const winnerHTML = winnerId.parentNode.innerHTML
-            setWinner(winnerHTML);
+        if (maxVotes){
+            setVotesWinner(maxVotes)
+            setEmojiWinner(Emoji)
+            setRenderWinner(true)
         }
     }
-  return (
-    <div className="App">
-        <ul className="emoji">
-            <SmileVoice onChange ={updateValue} emoji={1}/>
-            <SmileVoice onChange ={updateValue} emoji={2}/>
-            <SmileVoice onChange ={updateValue} emoji={3}/>
-            <SmileVoice onChange ={updateValue} emoji={4}/>
-        </ul>
-        <button className="btn-winner" onClick={showResult}>Show Results</button>
-        {winner ? (
-            <div className="winner-box">
-                <h2>Переможець голосування</h2>
-                <div className="emoji-winner" dangerouslySetInnerHTML={{ __html: winner }} />
-            </div>
-        ) : null}
-            </div>
-  );
+
+    return (
+        <div className="App">
+            <ul className="emoji">
+                <SmileVoice onChange ={updateValue} emojiId={1}/>
+                <SmileVoice onChange ={updateValue} emojiId={2}/>
+                <SmileVoice onChange ={updateValue} emojiId={3}/>
+                <SmileVoice onChange ={updateValue} emojiId={4}/>
+            </ul>
+            <button className="btn-winner" onClick={showResult}>Show Results</button>
+            {renderWinner && <EmojiWinner winner ={emojiWinner} maxVotes={votesWinner}/>}
+        </div>
+    );
 }
 
 export default App;

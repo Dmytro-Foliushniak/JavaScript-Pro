@@ -6,9 +6,18 @@
     margin-bottom: 50px;
 }
 
-.emoji-list, .emoji-winner{
+.emoji-list{
     width: 100px;
     display: flex;
     flex-direction: column;
     background-color: orange;
+}
+
+.winner-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.emoji-winner{
+    align-self: center;
 }
