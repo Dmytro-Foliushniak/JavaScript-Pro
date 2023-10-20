@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import '../src/App.css'
-import ToDo from "./components/ToDo";
+import Form from './components/Form'
 
 
 function App() {
 
     return(
-            <ToDo/>
+        <Form/>
     )
 }
 
