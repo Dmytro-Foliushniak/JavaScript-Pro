@@ -3,4 +3,5 @@ body {
     background-color: white;
     font: bold 14px/16px 'Nunito', sans-serif;
     color: #525252;
+    overflow-x: hidden;
 }
