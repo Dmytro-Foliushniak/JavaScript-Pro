@@ -1,50 +1,43 @@
 import {useState} from 'react';
 import '../styles/ToDo.css'
-import classNames from 'classnames'
 
 export default function ToDo() {
-    const defaultInput = ''
-    const [toDo, setToDoo] = useState([])
-    let [text, setText] = useState(defaultInput)
-    let currentStatus = true
-    function handleClick(){
-        if (text !== defaultInput){
-            setToDoo( prevToDo=> [...prevToDo, <li data-status={currentStatus} key={prevToDo.length} className='toDo-item'>{text}</li>])
-            setText(defaultInput)
-        }
-    }
 
-    function handleChangeStatus(e){
-        if (e.target.tagName === 'LI'){
+    const [tasks, setTask] = useState([
+        {title:'Make todo list', completed: true, id: 0},
+        {title:'Make something news', completed: false, id: 1}
+    ])
 
-            let currentStatus = e.target.getAttribute('data-status')
+    let [text, setText] = useState('')
 
-            e.target.className = classNames([
-                'toDo-item', currentStatus === 'true' ? 'completed' : ''
-            ])
+    function addTask(){
+        setTask([...tasks, {title: text, completed: false, id: tasks.length}])
+        setText('')
 
-            const newStatus = currentStatus=== 'true' ? 'false' : 'true'
-
-            e.target.setAttribute('data-status', newStatus)
-        }
     }
 
     function handleChange(e){
         setText(e.target.value)
     }
 
+    function changeStatus(id){
+        setTask(tasks.map(task=>task.id === id ? {...task, completed: !task.completed} : task))
+    }
+
     return (
-        <div className='toDo-box'>
-            <h1>Task</h1>
-            <ul onClick={handleChangeStatus} className='toDo-list'>
-                <li className='toDo-item completed'>Make todo list</li>
-                <li className='toDo-item' data-status = {currentStatus}>Make something news</li>
-                {toDo}
-            </ul>
-            <div className='input-box'>
-                <input className='input-text' onChange={handleChange} type="text" placeholder='New Task' value={text}/>
-                <button className='input-btn' onClick={handleClick}>Add</button>
-            </div>
+    <div className='toDo-box'>
+        <h1>Task</h1>
+        <ul className='toDo-list'>
+            {tasks.map(({title, id,completed})=>(
+                    <li onClick={()=>changeStatus(id)} key={id} className= {`toDo-item ${completed ? 'completed' : ''}`}>{title}</li>
+            ))}
+        </ul>
+        <div className='input-box'>
+            <input className='input-text' onChange={handleChange} type="text" placeholder='New Task' value={text}/>
+            <button className='input-btn' onClick={addTask}>Add</button>
         </div>
+    </div>
+
     )
+
 }
