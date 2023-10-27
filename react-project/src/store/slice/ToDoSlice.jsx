@@ -29,7 +29,7 @@ const ToDoSlice = createSlice({
             state.tasks = state.tasks.map(task=>task.id === action.payload.id ? {...task, isEditing: true, completed: false} : task)
         },
         saveTask: (state, action)=>{
-            state.tasks = state.tasks = state.tasks.map(task=> task.id === action.payload.id ? {...task, title: action.payload.value, isEditing: false}: task)
+            state.tasks = state.tasks.map(task=> task.id === action.payload.id ? {...task, title: action.payload.value, isEditing: false}: task)
         }
     }
 })
