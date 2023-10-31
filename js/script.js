@@ -5,15 +5,13 @@ const img = document.createElement('img')
 
 imageBox.append(img)
 
-imgRandom = function (){
-    let random = null
-    for (let i = 1; i <= 5; i++){
-        random =  Math.ceil(Math.random() * i) + `.jpg`
-    }
-    return random
-}
+const imgArr = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg']
 
-img.src = `/image/${imgRandom()}`
+const randomIndex = Math.floor(Math.random()* (imgArr.length))
+
+const randomImg = imgArr[randomIndex]
+
+img.src = `/image/${randomImg}`
 imageBox.style.cssText = `
 display: flex;
 justify-content: center;
