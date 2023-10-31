@@ -7,14 +7,17 @@ const createTable = function (countTR, countTD){
     tableContainer.prepend(table);
 
     for (let i = 0; i < countTR; i++){
-        table.innerHTML += `<tr class="tr"></tr>`
-        let tr = document.querySelectorAll('tr')
-        let sum = 0
+        let tr = document.createElement("tr")
+        tr.className = 'tr'
         for (let j = 0; j < countTD; j++){
-            tr[i].innerHTML += `<td class="td">${sum +=i+1}</td>`
+            const td = document.createElement('td')
+            td.className = 'td'
+            td.textContent = `${i * countTD + j + 1}`
+            tr.append(td)
         }
+        table.append(tr)
     }
-
 }
+
 
 createTable(10,10)
